@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Monthsary, My Love</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #fce1e1;
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+    }
+
+    /* Raining flowers effect */
+    .rain {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .flower {
+      position: absolute;
+      top: -50px;
+      opacity: 0;
+      animation: rain 5s linear infinite;
+      font-size: 20px;
+      color: #ff6699;
+      user-select: none;
+    }
+
+    @keyframes rain {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 1;
+      }
+    }
+
+    .container {
+      background-color: #ae6dda; /* Lighter purple when opened */
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 80%;
+      max-width: 600px;
+      display: none;
+      transform: scaleY(0);
+      transform-origin: top;
+      opacity: 0;
+      transition: transform 1s ease, opacity 1s ease, background-color 1s ease;
+    }
+
+    h1 {
+      color: white;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .signature {
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      margin-top: 40px;
+    }
+
+    .heart {
+      font-size: 50px;
+      color: white;
+      margin-top: 20px;
+    }
+
+    .footer {
+      font-size: 14px;
+      color: white;
+      margin-top: 40px;
+    }
+
+    .open-button {
+      background-color: #ae6dda;
+      color: white;
+      font-size: 20px;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .open-button:hover {
+      background-color: #ae6dda;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- The Open Me Button -->
+  <button class="open-button" onclick="openMessage()">Open Me</button>
+
+  <!-- Hidden Message Container -->
+  <div class="container" id="messageContainer">
+    <h1>Happy Monthsary, My Love!</h1>
+    <p>
+      I want you to remember, that know matter what comes our way, I will never stop loving you. You gave me this feelings that nobody has ever given me. I wish you knew how much I spent thinking about you.
+    </p>
+
+    <p>
+        Thank you for choosing me. Thank you for loving me. Thank you for always being supportive and being there for me.
+    
+    </p>
+
+    <p class="signature">
+        I love you so much,  
+      <span>My love!</span>
+    </p>
+
+    <div class="heart">❤️</div>
+    
+    <p class="footer">My Jeddie! 🌸</p>
+  </div>
+
+  <!-- Raining flowers -->
+  <div class="rain">
+    <span class="flower" style="left: 10%; animation-duration: 4s; animation-delay: 0s;">🌸</span>
+    <span class="flower" style="left: 30%; animation-duration: 6s; animation-delay: 1s;">🌼</span>
+    <span class="flower" style="left: 50%; animation-duration: 5s; animation-delay: 2s;">💐</span>
+    <span class="flower" style="left: 70%; animation-duration: 7s; animation-delay: 3s;">🌺</span>
+    <span class="flower" style="left: 90%; animation-duration: 5s; animation-delay: 0.5s;">🌻</span>
+    <!-- More flowers can be added by copying this line and adjusting position and delay -->
+  </div>
+
+  <script>
+    function openMessage() {
+      var messageContainer = document.getElementById('messageContainer');
+      var openButton = document.querySelector('.open-button');
+      
+      // Reveal the letter with smooth unfolding
+      messageContainer.style.display = 'block';
+      setTimeout(function() {
+        messageContainer.style.opacity = '1';
+        messageContainer.style.transform = 'scaleY(1)'; // Unfold the letter
+      }, 100);
+
+      // Add the purple color effect
+      setTimeout(function() {
+        messageContainer.classList.add('opened'); // Add lighter purple background
+      }, 1000); // Add delay to match the unfolding effect
+
+      // Remove the "Open Me" button
+      openButton.style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
+
